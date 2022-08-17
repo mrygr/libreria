@@ -80,11 +80,11 @@ WSGI_APPLICATION = 'libreria.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'libreria',
-        'USER': 'postgres',
-        'PASSWORD': 'admin',
-        'HOST': '127.0.0.1',
-        'DATABASE_PORT': '5432',
+        'NAME': 'd2cr23ijnic44o',
+        'USER': 'jjshncpflwkmfy',
+        'PASSWORD': '3c1f67630613ed8dc4fa9d8e3f206e513f0e7df97120284c3c0600cb4f6c5755',
+        'HOST': 'ec2-52-54-212-232.compute-1.amazonaws.com',
+        'DATABASE_PORT': '5432', 
     }
 }
 
