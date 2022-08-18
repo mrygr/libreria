@@ -1,13 +1,5 @@
-table {
-    width: 100%;
-    border: 100px solid #000;
- }
- th, td {
-    width: 25%;
-    text-align: left;
-    vertical-align: top;
-    border: 1px solid #000;
-    border-collapse: collapse;
-    padding: 0.3em;
-    caption-side: bottom;
- }
+th,
+td{
+    text-align: center;
+    vertical-align: middle;
+}
