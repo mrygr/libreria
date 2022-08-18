@@ -1,15 +1,13 @@
-th,
-td{
+table {
+    width: 100%;
+    border: 1px solid #000;
+ }
+ th, td {
     width: 25%;
     text-align: left;
     vertical-align: top;
     border: 1px solid #000;
     border-collapse: collapse;
-}
-
-table {
-    border-collapse: separate;
-    border-spacing: 5px;
-    background: #000 url("gradient.gif") bottom left repeat-x;
-    color: #fff;
+    padding: 0.3em;
+    caption-side: bottom;
  }
