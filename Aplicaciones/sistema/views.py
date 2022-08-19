@@ -4,10 +4,15 @@ from .models import Libro, Prestamo, Usuario
 from django.contrib import messages
 
 # Create your views here.
+
+# Página principal
 def home(request):
     usuarios = Usuario.objects.all()
     return render(request, "gestionUsuarios.html", {"usuarios": usuarios})
+# Fin página principal
 
+
+# Inicio vistas para la gestión de usuarios
 def registrarUsuario(request):
     numDocumento = request.POST['inpDocumento']
     tipoDocumento = request.POST['inptipoDocumento']
@@ -76,13 +81,11 @@ def eliminarUsuario(request, numDocumento):
 def edicionUsuarios(request, numDocumento):
     usuario = Usuario.objects.get(pk = numDocumento) 
     return render(request, "editarUsuarios.html", {"usuario": usuario})
+# Fin vistas para la gestión de usuarios
 
 
 
-
-
-
-
+# inicio vistas para la gestión de libros
 def gestionLibros(request):
     libros = Libro.objects.all()
     return render(request, "gestionLibros.html", {"libros": libros})
@@ -139,11 +142,11 @@ def eliminarLibro(request, ISBN):
         libro.delete()
         messages.success(request, '¡Libro eliminado!')
         return redirect('/gestionLibros')
+# Fin vistas para la gestión de libros
 
 
 
-
-
+# Inicio vistas para la gestión de prestamos
 def gestionPrestamos(request):
     prestamos = Prestamo.objects.all()
     return render(request, "gestionPrestamos.html", {"prestamos": prestamos})
@@ -193,7 +196,7 @@ def editarPrestamo(request):
     prestamo.fechaPrestamo = fechaPrestamo
     prestamo.fechaDevolucion = fechaDevolucion
     prestamo.save()
-    messages.success(request, 'Prestamo editado!')
+    messages.success(request, '¡Prestamo editado!')
     return redirect('/gestionPrestamos')        
 
 def eliminarPrestamo(request, IDprestamo):
@@ -201,3 +204,4 @@ def eliminarPrestamo(request, IDprestamo):
     prestamo.delete()
     messages.success(request, '¡Prestamo finalizado!')
     return redirect('/gestionPrestamos')        
+# Fin vistas para la gestión de prestamos
