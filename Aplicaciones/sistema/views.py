@@ -159,7 +159,7 @@ def registrarPrestamo(request):
 
     validacionPrestamo = Prestamo.objects.filter(ISBN = ISBN)
     validacionUsuario = Usuario.objects.filter(pk = numDocumento)
-    validacionLibro = Libro.objects.get(pk = ISBN)
+    validacionLibro = Libro.objects.filter(pk = ISBN)
 
     if validacionPrestamo:
         messages.error(request, '¡El libro ya esta prestado!')
