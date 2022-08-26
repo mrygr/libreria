@@ -157,11 +157,19 @@ def registrarPrestamo(request):
     fechaPrestamo = request.POST['inpFechaPrestamo']
     fechaDevolucion = request.POST['inpFechaDevolucion']
 
-    validacion = Prestamo.objects.filter(ISBN = ISBN)
+    validacionPrestamo = Prestamo.objects.filter(ISBN = ISBN)
+    validacionUsuario = Usuario.objects.filter(pk = numDocumento)
+    validacionLibro = Libro.objects.get(pk = ISBN)
 
-    if validacion:
+    if validacionPrestamo:
         messages.error(request, '¡El libro ya esta prestado!')
         return redirect('/gestionPrestamos')
+    if not validacionUsuario:
+        messages.error(request, '¡El usuario no existe!')
+        return redirect('/gestionPrestamos')
+    if not validacionLibro:
+        messages.error(request, '¡El libro no existe!')
+        return redirect('/gestionPrestamos')        
     else:
         prestamo = Prestamo.objects.create(
             fechaPrestamo = fechaPrestamo,
